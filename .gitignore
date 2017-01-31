@@ -1,0 +1,5 @@
+node_modules
+/test
+/src/*/bin
+/src/*/obj
+project.lock.json
