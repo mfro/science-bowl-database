@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="history">
-            <question v-for="que in history" :data="que" :group="group" :key="que.id"/>
+            <question v-for="que in history" :data="que" :group="group" :key="que.id" :answer="answers"/>
         </div>
         <moderator-tools v-if="showTools"/>
     </div>
