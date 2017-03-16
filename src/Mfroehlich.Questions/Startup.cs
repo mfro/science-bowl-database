@@ -41,6 +41,7 @@ namespace Mfroehlich.Questions
             });
 
             var context = new QuestionContext("questions.sqlite");
+            context.Database.EnsureCreated();
             services.AddSingleton(context);
 
             services.AddScoped<IQuestionRepository, QuestionRepository>();
