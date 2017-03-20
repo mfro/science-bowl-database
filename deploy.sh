@@ -14,9 +14,10 @@ usage()
     exit 1
 }
 
-if [ "$#" -ne 2 ]; then
+if [ "$#" -lt "2" ]; then
     usage
 elif [ "$1" = "frontend" ]; then
+
     echo "Deploying frontend to $host at $path"
 
     cd "./files"
@@ -25,6 +26,7 @@ elif [ "$1" = "frontend" ]; then
     tar -czf "$DIR/deploy.tar.gz" -C "./build" .
 
 elif [ "$1" = "backend" ]; then
+
     echo "Deploying backend to $host at $path"
 
     cd "./src/Mfroehlich.Questions"
@@ -38,6 +40,7 @@ else
 fi
 
 cd $DIR
+
 
 scp "deploy.tar.gz" $host:"deploy.tar.gz"
 rm deploy.tar.gz

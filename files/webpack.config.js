@@ -1,6 +1,7 @@
-var path = require("path");
+const path = require("path");
+const { DefinePlugin } = require('webpack');
 
-module.exports = {
+const config = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'build'),
@@ -45,5 +46,21 @@ module.exports = {
                 }
             },
         ]
-    }
+    },
+    plugins: []
+};
+
+module.exports = function (env) {
+    let args = JSON.parse(process.env.DEPLOY_ARGS || '{}');
+    
+    let service = args.api_host || 'localhost:8080';
+
+    console.log('weback build args:');
+    console.log('  SERVICE_URL:', service);
+
+    config.plugins.push(new DefinePlugin({
+        'SERVICE_URL': JSON.stringify(service),
+    }));
+
+    return config;
 }
