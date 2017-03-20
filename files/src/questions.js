@@ -36,14 +36,6 @@ const key = 'questions';
 REST.load = function (callback) {
     REST.base = SERVICE_URL;
     REST.socket = SERVICE_URL.replace('http', 'ws');
-    
-    // if (window.location.protocol == 'https:') {
-    //     REST.base = `https://${window.location.host}/api/questions`;
-    //     REST.socket = `wss://${window.location.host}/api/questions`;
-    // } else {
-    //     REST.base = `http://${window.location.hostname}:8081`;
-    //     REST.socket = `ws://${window.location.hostname}:8081`;
-    // }
 
     callback();
 }

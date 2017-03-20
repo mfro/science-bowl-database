@@ -53,7 +53,7 @@ const config = {
 module.exports = function (env) {
     let args = JSON.parse(process.env.DEPLOY_ARGS || '{}');
     
-    let service = args.api_host || 'localhost:8080';
+    let service = args.api_host || 'localhost:8081';
 
     console.log('weback build args:');
     console.log('  SERVICE_URL:', service);
